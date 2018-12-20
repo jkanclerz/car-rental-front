@@ -1,0 +1,21 @@
+<p>
+  car-list works!
+</p>
+
+<h2 *ngIf="cars.length == 0">Sorry, Thhere is no cars available now!!</h2>
+
+<ul *ngIf="cars.length > 0">
+  <li *ngFor="let car of cars" 
+  class="car">
+    <span class="car__name">{{ car.name }}</span>
+    <div class="car__price car__price--promotion">
+      {{car.pricePerDay}}
+    </div>
+    <div class="car__photo-wrapper">
+      <img class="car__photo"
+        [src]="car.photo"
+      />
+    </div>
+    <button (click)="handleClick(car.name)">Order now!!</button>
+  </li>
+</ul>

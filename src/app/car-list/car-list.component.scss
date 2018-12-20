@@ -1,0 +1,31 @@
+$mainColor: black;
+$promotionColor: red;
+$actionColor: aqua;
+
+.car {
+    display: block;
+    background-color: whitesmoke;
+
+    &__name {
+        color: $mainColor;
+        font-size: 2em;
+    }
+
+    &__price {
+        font-size: 1.5em;
+        color: $mainColor;
+
+        &--promotion {
+            color: $promotionColor;
+            font-size: 1.8 em;
+        }
+    }
+
+    &__photo-wrapper {
+        max-width: 300px;
+    }
+
+    &__photo {
+        width: 100%;
+    }
+}
