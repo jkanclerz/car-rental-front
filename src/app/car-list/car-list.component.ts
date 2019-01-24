@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Catalog } from '../carcatalog/catalog';
+import { Catalog } from '../services/catalog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-list',
@@ -8,20 +9,17 @@ import { Catalog } from '../carcatalog/catalog';
 })
 export class CarListComponent implements OnInit {
 
-  private catalog: Catalog;
   public cars = [];
-  constructor(carCatalog: Catalog) {
-    this.catalog = carCatalog;
-  }
+  constructor(private carCatalog: Catalog, private router: Router) {}
 
   handleClick(name: string) {
-    alert('You are going to rent ' + name);
+    this.router.navigate(['order', name]);
   }
 
   ngOnInit() {
-    this.catalog.all()
-      .subscribe(x => {
-        this.cars = x;    
+    this.carCatalog.all()
+      .subscribe(cars => {
+        this.cars = cars;
       });
   }
 }
